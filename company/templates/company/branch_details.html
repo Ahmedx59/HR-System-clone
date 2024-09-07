@@ -4,14 +4,16 @@
 {%endblock title%}
 {% block breadcrumb%}
     <li class="breadcrumb-item active" aria-current="page">
-        <a href="{% url 'branches' %}">branches</a></li>
+        <a href="{% url 'company:branches' %}">branches</a></li>
     <li class="breadcrumb-item active" aria-current="page">{{branch.name}}</li>
 {%endblock breadcrumb%}
 {% block body%}
         <div style="background-color: rgb(235, 230, 230);border: 10px solid rgb(235, 230, 230);border-radius: 10px;">
             <dl class="row ml-4">
                 <dt class="col-sm-3">Name:</dt>
-                <dd class="col-sm-9">{{branch.name}} <br/> <p class="text-muted">{{branch.address}}</p></dd>
+                <dd class="col-sm-9">{{branch.name}}</dd>
+                <dt class="col-sm-3">Address:</dt>
+                <dd class="col-sm-9">{{branch.address}}</dd>
                 <dt class="col-sm-3">Phone:</dt>
                 <dd class="col-sm-9">{{branch.phone}}</dd>
                 <dt class="col-sm-3">Email:</dt>
@@ -19,19 +21,26 @@
             </dl>
         </div>
         <br/>
-        <h2>Departments</h2>
-        <table class="table ">
-            <thead class="thead-dark">
-                <th>name</th>
-                <th>description</th>
-            </thead>
-            <tbody>
-                {% for department in dparments %}
-                <tr>
-                    <td>{{department.name}}</td>
-                    <td>{{department.description}}</td>
-                </tr>
-                {%endfor%}
-            </tbody>
-        </table>
+        <div class="mt-5">
+        {% if departments %}
+            <h2>Departments</h2>
+            <table class="table ">
+                <thead class="thead-dark">
+                    <th>name</th>
+                    <th>description</th>
+                </thead>
+                <tbody>
+                    {% for department in departments %}
+                    <tr>
+                        <td>{{department.name}}</td>
+                        <td>{{department.description}}</td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        {% else %}
+            <h1 class="alert-warning p-5"> No Departments found for this Branch {{branch.name}}</h1>
+        
+        {% endif %}
+        </div>
 {%endblock body%}

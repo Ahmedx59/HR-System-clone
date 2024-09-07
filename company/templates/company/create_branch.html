@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+
+{%block title%}
+<title>new branshe</title>
+{%endblock%}
+
+{% block breadcrumb%}
+    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'company:branches' %}">branches</a></li>
+    <li class="breadcrumb-item active" aria-current="page">new branche</li>
+{%endblock%}
+
+{% block body%}
+<form method="post" class="m-5">
+    {% csrf_token %}
+    <div class="form-group m-4">
+        <label >Branche name</label>
+        <input type="text" class="form-control" name="branch-name" required>
+    </div>
+    <div class="form-group m-4">
+        <label >Branche address</label>
+        <input type="text" class="form-control" name="branch-address" required>
+    </div>
+    <div class="form-group m-4">
+        <label >Branche phone</label>
+        <input type="text" class="form-control" name="branch-phone" required >
+    </div>
+    <div class="form-group m-4">
+        <label>Branche Email address</label>
+        <input type="email" class="form-control" name="branch-email" required>
+      </div>
+      <input type="submit" value="add branche" class="btn btn-outline-success"/>
+</form>
+{%endblock body%}
