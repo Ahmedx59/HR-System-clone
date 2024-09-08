@@ -7,13 +7,14 @@
 {% block breadcrumb %}
     <li class="breadcrumb-item active" aria-current="page">branches</li>
 {% endblock breadcrumb %}
+
 {% block body%}
     <table class="table table-hover">
         <thead class="thead-dark">
-            <th>branche name</th>
-            <th>branche phone</th>
-            <th>branche mail</th>
-            <th>branche departments Count</th>
+            <th>branch name</th>
+            <th>branch phone</th>
+            <th>branch mail</th>
+            <th>departments</th>
         </thead>
         <tbody>
         {%for branche in branches %}

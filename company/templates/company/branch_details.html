@@ -21,6 +21,8 @@
             </dl>
         </div>
         <br/>
+        <a href="{% url 'company:branch_edit' branch.id %}" class="btn btn-outline-primary">Edit branch</a>
+
         <div class="mt-5">
         {% if departments %}
             <h2>Departments</h2>
@@ -38,6 +40,7 @@
                     {%endfor%}
                 </tbody>
             </table>
+            <a href="#" class="btn btn-outline-primary">Edit Department</a>
         {% else %}
             <h1 class="alert-warning p-5"> No Departments found for this Branch {{branch.name}}</h1>
         

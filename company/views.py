@@ -30,3 +30,28 @@ def branch_create(request):
         return redirect('/company/')
 
     return render(request,'company/create_branch.html')
+
+
+
+def branch_edit(request,id):
+    object = Branch.objects.get(id=id)
+
+    if request.method == 'POST':
+        name = request.POST['branch-name']
+
+        address = request.POST['branch-address']
+
+        phone = request.POST['branch-phone']
+
+        email = request.POST['branch-email']
+
+        Branch.objects.create(
+            name= name,
+            address= address,
+            phone= phone,
+            email=email
+            
+        )
+        return redirect(f'/company/{object.id}')
+
+    return render(request,'company/branch_edit.html',{'object': object})
