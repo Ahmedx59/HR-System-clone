@@ -37,21 +37,21 @@ def branch_edit(request,id):
     object = Branch.objects.get(id=id)
 
     if request.method == 'POST':
-        name = request.POST['branch-name']
+        name = request.POST['branchName']
 
-        address = request.POST['branch-address']
+        address = request.POST['branchAddress']
 
-        phone = request.POST['branch-phone']
+        phone = request.POST['branchPhone']
 
-        email = request.POST['branch-email']
+        email = request.POST['branchEmail']
 
-        Branch.objects.create(
-            name= name,
-            address= address,
-            phone= phone,
-            email=email
-            
-        )
+        
+        object.name = name
+        object.address= address
+        object.phone= phone
+        object.email=email
+        object.save()
+        
         return redirect(f'/company/{object.id}')
 
     return render(request,'company/branch_edit.html',{'object': object})

@@ -4,7 +4,7 @@
     <title>Edit Branch {{ object.name }}</title>
 {% endblock %}
 
-{% block content %}
+{% block body %}
     <h1>Edit Branch</h1>
     <form method="POST">
         {% csrf_token %}
@@ -26,4 +26,4 @@
         </div>
         <button type="submit" class="btn btn-primary">Save changes</button>
     </form>
-{% endblock %}
+{% endblock body %}
